@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ingesta-cartelera:
+    build: .
+    container_name: ingesta_usuarios_c
+    env_file: .env
+    volumes:
+      - ./salidas:/app  # para que puedas ver el archivo CSV localmente (opcional)
+    networks:
+      - red_ingesta
+    restart: "no"
+
+networks:
+  red_ingesta:
+    driver: bridge
